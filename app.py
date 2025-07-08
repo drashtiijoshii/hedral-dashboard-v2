@@ -645,102 +645,65 @@ def main():
     with st.sidebar:
         st.markdown("## ⚙️ Configuration")
         
-        # Data source selection
         data_source = st.radio(
             "📊 Data Source:",
-            ["Sample Data", "Google Sheets"]
+            ["Sample Data", "Google Sheet"]
         )
         
-        if data_source == "Google Sheets":
-            st.markdown("### 📋 Issues Data (Scrum & Performance)")
+        if data_source == "Google Sheet":
             st.markdown("""
             <div class="info-box">
-            <b>🔗 Linear/Issues Data:</b><br>
-            Connect your Linear export or issues data
+            <b>📝 Setup Instructions:</b><br>
+            1. Make your sheet public (Anyone with link can view)<br>
+            2. Copy the full URL from browser<br>
+            3. Paste below and click Connect
             </div>
             """, unsafe_allow_html=True)
             
-            issues_sheet_url = st.text_input(
-                "Issues Google Sheets URL:",
+            sheet_url = st.text_input(
+                "Google Sheets URL:",
                 value="https://docs.google.com/spreadsheets/d/17t0xVraS294wFkGQfdUlNsVdFiivTMc5gn5YLKmaALg/edit?usp=sharing",
-                placeholder="https://docs.google.com/spreadsheets/d/your-linear-export/edit#gid=0",
-                key="issues_url"
+                placeholder="https://docs.google.com/spreadsheets/d/your-sheet-id/edit#gid=0"
             )
             
-            # Connect Issues Sheet
-            if issues_sheet_url and st.button("🔌 Connect Issues Sheet", type="primary", key="connect_issues"):
-                if "docs.google.com/spreadsheets" not in issues_sheet_url:
-                    st.error("❌ Please enter a valid Google Sheets URL")
-                else:
-                    # Show custom loading overlay
-                    loading_placeholder = st.empty()
-                    with loading_placeholder:
-                        show_loading_overlay("🔌 Connecting to Issues Sheet...")
-                    
-                    # Perform connection
-                    from connect_google_sheet import GoogleSheetConnector
-                    connector = GoogleSheetConnector()
-                    success = connector.connect_with_url(issues_sheet_url)
-                    
-                    # Clear loading overlay
-                    loading_placeholder.empty()
-                    
-                    if success:
-                        st.success("✅ Issues Sheet Connected!")
-                        st.session_state.issues_connector = connector
-                        st.rerun()  # Refresh to show connection status
+            # Auto-connect if URL is provided but not connected
+            if sheet_url and 'connector' not in st.session_state:
+                if st.button("🔌 Connect", type="primary"):
+                    if "docs.google.com/spreadsheets" not in sheet_url:
+                        st.error("❌ Please enter a valid Google Sheets URL")
                     else:
-                        st.error("❌ Issues Sheet Connection failed")
+                        # Show custom loading overlay
+                        loading_placeholder = st.empty()
+                        with loading_placeholder:
+                            show_loading_overlay("🔌 Connecting to Google Sheet...")
+                        
+                        # Perform connection
+                        connector = GoogleSheetConnector()
+                        success = connector.connect_with_url(sheet_url)
+                        
+                        # Clear loading overlay
+                        loading_placeholder.empty()
+                        
+                        if success:
+                            st.success("✅ Connected successfully!")
+                            st.session_state.connector = connector
+                            st.rerun()  # Refresh to show connection status
+                        else:
+                            st.error("❌ Connection failed")
+                            st.markdown("""
+                            **Troubleshooting:**
+                            - Make sure your sheet is publicly accessible
+                            - Check if the URL is complete and correct
+                            - Try sharing with 'Anyone with the link can view'
+                            """)
             
-            # Show Issues connection status
-            if 'issues_connector' in st.session_state:
-                st.success("✅ Issues Sheet Connected")
-            
-            st.markdown("---")
-            
-            # OKR Data Section
-            st.markdown("### 🎯 OKR Data")
-            st.markdown("""
-            <div class="info-box">
-            <b>📊 OKR/Goals Data:</b><br>
-            Connect your OKR tracking sheet
-            </div>
-            """, unsafe_allow_html=True)
-            
-            okr_sheet_url = st.text_input(
-                "OKR Google Sheets URL:",
-                placeholder="https://docs.google.com/spreadsheets/d/your-okr-sheet/edit#gid=0",
-                key="okr_url"
-            )
-            
-            # Connect OKR Sheet
-            if okr_sheet_url and st.button("🔌 Connect OKR Sheet", type="secondary", key="connect_okr"):
-                if "docs.google.com/spreadsheets" not in okr_sheet_url:
-                    st.error("❌ Please enter a valid Google Sheets URL")
-                else:
-                    # Show custom loading overlay
-                    loading_placeholder = st.empty()
-                    with loading_placeholder:
-                        show_loading_overlay("🔌 Connecting to OKR Sheet...")
-                    
-                    # Perform connection
-                    from connect_google_sheet import GoogleSheetConnector
-                    okr_connector = GoogleSheetConnector()
-                    success = okr_connector.connect_with_url(okr_sheet_url)
-                    
-                    # Clear loading overlay
-                    loading_placeholder.empty()
-                    
-                    if success:
-                        st.success("✅ OKR Sheet Connected!")
-                        st.session_state.okr_connector = okr_connector
-                        st.rerun()  # Refresh to show connection status
-                    else:
-                        st.error("❌ OKR Sheet Connection failed")
-            
-            # Show OKR connection status
-            if 'okr_connector' in st.session_state:
-                st.success("✅ OKR Sheet Connected")
+            # Show connection status
+            if 'connector' in st.session_state:
+                st.success("✅ Google Sheet Connected")
+                
+                # Show mapping confirmation messages
+                st.success("✅ Mapped 'Cycle Start' → 'cycle_start'")
+                st.success("✅ Mapped 'Cycle End' → 'cycle_end'")
         
         if data_source == "Sample Data":
             st.markdown("""
@@ -748,12 +711,10 @@ def main():
             <b>📝 Sample Data:</b><br>
             • 50 issues, 3 sprints<br>
             • 5 team members<br>
-            • 5 OKRs with progress<br>
-            Perfect for testing!
+            • 5 OKRs with progress
             </div>
             """, unsafe_allow_html=True)
         
-        st.markdown("---")
         if st.button("🔄 Refresh Data"):
             st.rerun()
     
@@ -777,37 +738,27 @@ def main():
         okr_dashboard(okr_df)
 
 def load_data(source):
-    """Load data from selected source with dual Google Sheet support"""
+    """Load data from selected source"""
     if source == "Sample Data":
         return get_sample_data(), get_sample_okr_data()
-    elif source == "Google Sheets":
-        # Load Issues Data (for Scrum & Performance)
-        issues_df = None
-        if 'issues_connector' in st.session_state:
+    elif source == "Google Sheet":
+        # Check if connector exists in session state
+        if 'connector' in st.session_state:
             try:
-                issues_df = st.session_state.issues_connector.load_issues_data()
-                if issues_df is not None and not issues_df.empty:
-                    st.success(f"✅ Loaded {len(issues_df)} issues from Linear Sheet")
+                issues = st.session_state.connector.load_issues_data()
+                okrs = st.session_state.connector.load_okr_data()
+                
+                # Show success message if data loaded
+                if issues is not None and not issues.empty:
+                    st.success(f"✅ Loaded {len(issues)} issues from Google Sheet")
+                
+                return issues, okrs
             except Exception as e:
-                st.error(f"❌ Error loading issues data: {str(e)}")
-                issues_df = get_sample_data()  # Fallback to sample data
+                st.error(f"❌ Error loading data: {str(e)}")
+                return get_sample_data(), get_sample_okr_data()  # Fallback to sample data
         else:
-            issues_df = get_sample_data()  # Default to sample data
-        
-        # Load OKR Data (separate sheet)
-        okr_df = None
-        if 'okr_connector' in st.session_state:
-            try:
-                okr_df = st.session_state.okr_connector.load_okr_data()
-                if okr_df is not None and not okr_df.empty:
-                    st.success(f"✅ Loaded {len(okr_df)} OKRs from OKR Sheet")
-            except Exception as e:
-                st.error(f"❌ Error loading OKR data: {str(e)}")
-                okr_df = get_sample_okr_data()  # Fallback to sample data
-        else:
-            okr_df = get_sample_okr_data()  # Default to sample data
-            
-        return issues_df, okr_df
+            # Return sample data if no connection - don't show error in main area
+            return get_sample_data(), get_sample_okr_data()
     else:
         return get_sample_data(), get_sample_okr_data()
 

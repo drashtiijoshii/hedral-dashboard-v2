@@ -1,0 +1,911 @@
+ID,Name,URL,Summary,Description,Status,Priority,Milestones,Creator,Lead,Members,Start Date (Start),Start Date (End),Target Date (Start),Target Date (End),Created At,Started At,Updated At,Completed At,Canceled At,Archived At,Teams,Initiatives,Health,Latest Update,Latest Update Date,Customer Count,Customer Revenue,Blocking,Blocked by,Labels,Initiative IDs
+d48fc7ec-c55e-4011-91a2-e4bde2d8129d,SWE Process/Onboarding Improvements,https://linear.app/hedral/project/swe-processonboarding-improvements-f4075b3d074c,Overall improvements to onboarding,"# Motivation
+
+Onboarding is currently painful and can improve with regards to:
+
+* docs
+* automation
+
+Additionally, there are some other pain-points due to loose process definitions with regards to
+
+* software development lifecycle
+* CICD rules and automations
+* code quality rules
+* test requirements
+
+---
+
+# Brief
+
+There should be a standardized process of required readings and set up steps that new SWE hires go through. So we are currently adding more documentation and automations to improve the process.
+
+At onboarding time, SDLC should be clearly defined and understood by new hires.
+
+---
+
+# Requirements
+
+- [X]  Day 1 Document
+- [X] Software Engineer's Day 1 Document
+  - [X] Development Machine Set up
+  - [X] READMEs with ""Getting Started"" section with repo-specific instructions on all essential repositories
+- [ ] All steps of setup are automated IF (1) it is reasonable to automate and (2) it should be abstracted away from the developer, some things are good to not abstract if developer should be familiar with the tool/dependency
+- [ ] Automations should be compatible with (in priority order)
+  - [ ] WSL2 Ubuntu LTS 22.04 on Windows 11
+  - [ ] MacOS
+  - [ ] Native windows (using Git BASH shell)
+- [ ] Set a quarterly process of checking up on all onboarding documentation to make sure it is up to date
+- [ ] Software development lifecycle is clearly defined in a document
+
+---
+
+# Owners
+
+Lead: @genki and @omkar 
+
+---
+
+# Timeline
+
+We've already started this work and are aiming to complete this project by the end of Q1, March 31st 2024.
+
+In the future, we'll probably have to do something like a quarterly check-in to make sure docs are up to date, and that automations work on new machines.
+
+---
+
+**Reminders**
+
+* Add Linear milestones to this project for intermediate timeline targets
+* Set a Linear project start and end date
+* Set any dependencies between this project and others
+* Assign relevant issues to this project
+* Attach any supplementary materials (Figma designs, Notion docs, etc.)",In Progress,Medium,"Automations implemented in all essential repositories[overdue](Target Date: 2025-03-21),Day 1 Document is polished and ready for use[overdue](Target Date: 2025-03-14),Entire process is tested against factory-reset machine[overdue](Target Date: 2025-03-21),Day 1 SWE Document is polished and ready for use[overdue](Target Date: 2025-03-14),Defined quarterly process for making sure that docs are up to date[overdue](Target Date: 2025-03-28),SDLC is defined, documented, and implemented[overdue](Target Date: 2025-03-28),Entire SDLC is tested on a dummy commit (dev,staging,prod)[unstarted],Development Machine Set up Document is polished and ready for use[done](Target Date: 2025-03-14)",Genki Kadomatsu,Genki Kadomatsu,"Drashti Joshi, Genki Kadomatsu, Omkar, Shivam Kadukar, vaidas@hedral.co, yankun@hedral.co",2/1/2025,,3/31/2025,,3/6/2025 14:54:34,3/6/2025 15:00:57,5/15/2025 19:32:43,,,,Software,,On track,"🟢 On track | Genki Kadomatsu posted an update on Mar 6
+
+A lot of this work is already complete/in-progress, but formalizing this work into a Linear project, please feel free to edit this. Targeting end of month and thus end of quarter 1 to complete all of this work, which will include:
+
+* documentation improvements
+* automation improvements (CICD and local development)
+* clear software development lifecycle process definition (git, testing, and deployment practices)",3/6/2025,,,,,,
+4b526352-5476-40ef-9533-4fef0859e738,Develop generative models for architectural engineering and construction,https://linear.app/hedral/project/develop-generative-models-for-architectural-engineering-and-a6a09aa1055a,,"# Motivation
+
+Using artificial intelligence (AI) to expedite the design process in architectural engineering and construction (AEC) and to reduce the costs.
+
+---
+
+# Brief
+
+This is an umbrella project containing several sub-projects with the goal of using machine learning (ML) and artificial intelligence (AI) during the process of architectural engineering and construction (AEC) design.
+
+---
+
+# Requirements
+
+* Finish all the sub-projects of this project.
+
+---
+
+# Owners
+
+Lead: @farhad 
+
+Contributors: 
+
+* @gabriela.tsvetkova 
+* @genki 
+
+---
+
+# Timeline
+
+* <List of Linear milestones>
+
+---
+
+**Reminders**
+
+* Add Linear milestones to this project for intermediate timeline targets
+* Set a Linear project start and end date
+* Set any dependencies between this project and others
+* Assign relevant issues to this project
+* Attach any supplementary materials (Figma designs, Notion docs, etc.)",Backlog,No priority,,farhad@hedral.co,farhad@hedral.co,farhad@hedral.co,,,,,3/6/2025 14:54:51,,5/22/2025 9:03:55,,,,Software,,No updates,,,,,,,,
+82059f3b-ddb3-4f8d-8027-1060dc9b45ed,DesignPath/Commit Feature Development,https://linear.app/hedral/project/designpathcommit-feature-development-dae03a1aa66c,,"# Motivation
+
+<What problem does this project solve? Which OKR does it contribute to?>
+
+---
+
+# Brief
+
+<Provide a high level overview of the feature.>
+
+---
+
+# Requirements
+
+* <List requirements. What must be complete for this project to be considered done?>
+
+---
+
+# Owners
+
+Lead: @yankun 
+
+* @arushi.singh 
+* @shailja.atkotiya 
+* @priyal.khatri 
+
+---
+
+# Timeline
+
+* <List of Linear milestones>
+
+---
+
+**Reminders**
+
+* Add Linear milestones to this project for intermediate timeline targets
+* Set a Linear project start and end date
+* Set any dependencies between this project and others
+* Assign relevant issues to this project
+* Attach any supplementary materials (Figma designs, Notion docs, etc.)",In Progress,High,,Drashti Joshi,yankun@hedral.co,"Arushi Singh, Priyal Khatri, Shailja Atkotiya, yankun@hedral.co",2/24/2025,,,,3/7/2025 6:54:38,3/7/2025 6:54:38,5/22/2025 9:04:04,,,,Software,,No updates,,,,,,,,
+487e8af2-8455-4757-a2c0-ae5e01bdc407,Agentic Conceptual Design,https://linear.app/hedral/project/agentic-conceptual-design-280188bace97,,"# Motivation
+
+The previous `conceptual-design-service` was not aware of site-constraints, and attempted to handle too much of the deterministic geometric operations while generating mass models. We've found recently that the generation of geometries can be left to a deterministic algorithm, while the higher level orchestration/parameter generation for those geometry algorithms provides LLMs with a nice level of abstraction for generating diverse outputs while maintaining coherence/avoiding hallucination/keeping the context window lean.
+
+---
+
+# Brief
+
+This project aims to build a system for mass model generation that is site constraint aware, and does not include the actual (grasshopper) implementation of the geometry generation.
+
+---
+
+# Requirements
+
+* [https://docs.google.com/document/d/1xRdm95yeVqJ3UQ7UiRYjvpZgJMr0W6u0xyBjWczX2Jg/edit?usp=sharing](https://docs.google.com/document/d/1xRdm95yeVqJ3UQ7UiRYjvpZgJMr0W6u0xyBjWczX2Jg/edit?usp=sharing)
+  * This document outlines the rough project requirements. The scope has changed as a result of learnings that have come out of the past couple months, but the level of complexity of chat interactions is the same.
+  * Current expected functionalities include,
+    * Agent performs RAG with vector store of building codes
+    * Agent falls back to web search if vector search doesn't provide valuable search results
+    * Using site-constraints, the Agent generates parameters for the geometry algorithm(s) whose expected behavior(s) are documented
+
+# Owners
+
+Lead: @gabriela.tsvetkova 
+
+* Evaluation: @farhad 
+* Help: @genki 
+
+---
+
+**Reminders**
+
+* Add Linear milestones to this project for intermediate timeline targets
+* Set a Linear project start and end date
+* Set any dependencies between this project and others
+* Assign relevant issues to this project
+* Attach any supplementary materials (Figma designs, Notion docs, etc.)",Completed,No priority,,Genki Kadomatsu,gabriela.tsvetkova@hedral.co,"farhad@hedral.co, gabriela.tsvetkova@hedral.co, Genki Kadomatsu",2/1/2025,,3/21/2025,,3/18/2025 15:21:20,,4/9/2025 4:39:03,4/9/2025 4:39:03,,5/9/2025 16:05:19,Software,,On track,"🟢 On track | Genki Kadomatsu posted an update on Apr 9
+
+Marking as done since Gabriela completed her project, relevant docs can be found here
+
+[Your connected workspace for wiki, docs & projects | Notion](https://www.notion.so/Conceptual-Design-Agent-1c1986405acd808cab92cb784997ec60)",4/9/2025,,,,,,
+e1262b6c-54ca-4abd-9953-bd03c867f076,UI Components Development,https://linear.app/hedral/project/ui-components-development-44c9a2874f17,,"# Motivation
+
+<What problem does this project solve? Which OKR does it contribute to?>
+
+---
+
+# Brief
+
+[ UI Kit - Hedral Platform (NEW!) (Figma)](https://www.figma.com/design/N4CVS0HFT7is8qwxNkNpKE/Hedral-Platform--NEW--?node-id=15008-28356&p=f&t=5PPZkEwmDo5I0Oi9-0)
+
+---
+
+# Requirements
+
+* Button component - 4 days - @arushi.singh 
+* Inputs - 3 days - @shailja.atkotiya 
+* Dropdown - 2 days - @shailja.atkotiya 
+* Checkbox - 1 day - @shailja.atkotiya 
+* Tab - 0.5 day - @arushi.singh 
+* Chip - 0.5 - @arushi.singh 
+* Badge - 0.5 - @arushi.singh 
+* Scroll - 1 - @arushi.singh 
+* Menu Item - 2 - @shailja.atkotiya 
+* Model Header - 0.5 - @arushi.singh 
+* Avatar - 0.5 - @arushi.singh 
+* Global theme configuration - 0.5 - @arushi.singh 
+
+---
+
+# Owners
+
+Lead: @yankun 
+
+* @shailja.atkotiya 
+* @arushi.singh 
+
+---
+
+# Timeline
+
+---
+
+**Reminders**
+
+* Add Linear milestones to this project for intermediate timeline targets
+* Set a Linear project start and end date
+* Set any dependencies between this project and others
+* Assign relevant issues to this project
+* Attach any supplementary materials (Figma designs, Notion docs, etc.)",In Progress,High,"global theme configuration[done](Target Date: 2025-05-06),Dropdown[overdue](Target Date: 2025-05-09),checkbox[unstarted],model header[done],Tab[done],Button[done](Target Date: 2025-05-12),chip[done],avatar[done],scroll[done],badge[done],menu item[done],Inputs[overdue](Target Date: 2025-05-08)",Drashti Joshi,yankun@hedral.co,"Arushi Singh, Shailja Atkotiya, yankun@hedral.co",5/6/2025,,5/16/2025,,5/6/2025 8:02:22,5/6/2025 8:02:22,5/22/2025 9:02:57,,,,Software,,No updates,,,,,,,,
+306b6882-2411-40c3-92a8-0337dea890a4,Conceptual Design,https://linear.app/hedral/project/conceptual-design-f3c0ed841aa1,,"# Motivation
+
+Design and deploy a conceptual **Zoning Flow** powered by a **Modular Command Protocol (MCP)** server and **LLM tool integration**, with optional new flow logic. The goal is to prototype how LLMs can leverage custom tools (deployed via MCP) for zoning workflows, and also to explore vector databases and similarity-based operations for future integrations.
+
+---
+
+# Brief
+
+Design and deploy a conceptual **Zoning Flow** powered by a **Modular Command Protocol (MCP)** server and **LLM tool integration**, with optional new flow logic. The goal is to prototype how LLMs can leverage custom tools (deployed via MCP) for zoning workflows, and also to explore vector databases and similarity-based operations for future integrations.
+
+---
+
+# Requirements
+
+* **MCP Server Setup:**
+* **Tooling for Zoning Flow:**
+* **LLM Integration:**
+* **Conceptual Flow Design:**
+* **Vector DB Exploration:**
+  * Integrate a simple vector DB (e.g., FAISS, Weaviate, ChromaDB).
+  * Experiment with storing zoning rule embeddings or site metadata.
+  * Implement basic similarity search (e.g., ""find similar sites by zoning"", ""retrieve matching rules"").
+* **POC Demo and Documentation:**
+  * Create an end-to-end demo showcasing the zoning flow via LLM + tools.
+  * Document tool schemas, LLM prompts, flow behavior, and vector DB usage.
+
+---
+
+# Owners
+
+Lead: @omkar 
+
+* @purvangi.koshti 
+
+---
+
+# Timeline
+
+* <List of Linear milestones>
+
+---
+
+**Reminders**
+
+* Add Linear milestones to this project for intermediate timeline targets
+* Set a Linear project start and end date
+* Set any dependencies between this project and others
+* Assign relevant issues to this project
+* Attach any supplementary materials (Figma designs, Notion docs, etc.)",Backlog,Medium,"Workflow for ZoneAnalytics[done],Deployment of conceptual design (zone) [done],ai image rendering[next],Similarity Search, Vector Indexing, and Vector Database Technologies[done]",Purvangi Koshti,Omkar,"Omkar, Purvangi Koshti",,,6/16/2025,,5/20/2025 6:57:51,,6/2/2025 7:05:48,,,,Software,,No updates,,,,,,,,
+f5d29cd0-d8d6-42d2-b2cf-28ef6a5d2cda,Infrastructure Hardening,https://linear.app/hedral/project/infrastructure-hardening-6a51b7518a14,To fix our observability stack.,"# Motivation
+
+Our systems need stronger observability so that the team can debug issues without having to run long bespoke sequences of shell commands that require specific admin credentials or secret keys. There should also be preventative measures put in place to proactively avoid system failures.
+
+---
+
+# Brief
+
+* Fix Loki dashboards
+* Deploy prometheus agents to all environments so that metrics are observable
+* Set baseline alerts and notifications for infrastructure-level failures
+  * Pod eviction
+  * Scaling events
+  * Application failures (500's)
+  * Resource thresholds (pod cpu and mem)
+  * Service health
+
+---
+
+# Requirements
+
+- [ ] Listed points above are deployed and tested against all environments
+
+---
+
+# Owners
+
+@genki
+
+---
+
+# Timeline
+
+Targeting completion by May 23rd EOD
+
+---
+
+**Reminders**
+
+* Add Linear milestones to this project for intermediate timeline targets
+* Set a Linear project start and end date
+* Set any dependencies between this project and others
+* Assign relevant issues to this project
+* Attach any supplementary materials (Figma designs, Notion docs, etc.)",Completed,Urgent,"Integration tests running in CI[done](Target Date: 2025-05-23),Loki fixed[done](Target Date: 2025-05-19),Prometheus Deployed on all environments[done](Target Date: 2025-05-21),Cleanup tasks complete[done](Target Date: 2025-05-26)",Genki Kadomatsu,Genki Kadomatsu,Genki Kadomatsu,5/19/2025,,5/26/2025,,5/21/2025 18:31:31,,6/5/2025 3:56:28,6/5/2025 3:56:28,,,Software,,No updates,,,,,,,,
+b4a4b65c-10e9-4a2a-abf0-c786ad6188a6,Streaming Integration,https://linear.app/hedral/project/streaming-integration-acf071ce707a,To integrate streaming in frontend/backend,"# Motivation
+
+1. Payloads are very large, leading to excessive memory use in the backend
+2. Some operations will have longer execution times, where we should display iterative results to users
+
+---
+
+# Brief
+
+* Align with team on event schema
+* Make the necessary application level changes to iteratively load operation results
+
+---
+
+# Requirements
+
+- [ ]  Above bullet points are deployed to all environments for backend
+
+---
+
+# Owners
+
+Lead: <@ the lead of this project. This person will be responsible for reporting on the status of this project.>
+
+* <@ list of contributors>
+
+---
+
+# Timeline
+
+Targeting completion by June 13th EOD
+
+---
+
+**Reminders**
+
+* Add Linear milestones to this project for intermediate timeline targets
+* Set a Linear project start and end date
+* Set any dependencies between this project and others
+* Assign relevant issues to this project
+* Attach any supplementary materials (Figma designs, Notion docs, etc.)",Backlog,Urgent,"Application changes tested and deployed[done](Target Date: 2025-06-13),Document and align on event schemas with frontend and desktop developers[done](Target Date: 2025-06-09)",Genki Kadomatsu,Genki Kadomatsu,Genki Kadomatsu,6/6/2025,,6/16/2025,,5/21/2025 18:36:20,,5/22/2025 1:00:27,,,,Software,,No updates,,,,,"(Backend) ""AI Renderer"" Feature (Backlog)",,,
+5cc48af8-4b82-452f-a9d2-4bd63ef87433,"(Backend) ""AI Renderer"" Feature",https://linear.app/hedral/project/backend-ai-renderer-feature-5489886fe94e,,"# Motivation
+
+To ship the ""AI renderer"" feature which is [outlined on this miro board](https://miro.com/app/board/uXjVLpx1Zt0=/?moveToWidget=3458764627967055893&cot=14)
+
+---
+
+# Requirements
+
+1. Align with team on design
+2. Implement and deploy backend features on all environments
+
+(Not included) frontend feature development
+
+---
+
+# Owners
+
+(For now) @genki, to be picked up
+
+---
+
+# Timeline
+
+Targeting completion June 27th EOD 
+
+---
+
+**Reminders**
+
+* Add Linear milestones to this project for intermediate timeline targets
+* Set a Linear project start and end date
+* Set any dependencies between this project and others
+* Assign relevant issues to this project
+* Attach any supplementary materials (Figma designs, Notion docs, etc.)",Backlog,High,"Design aligned[overdue](Target Date: 2025-06-17),Tests reviewed in `hedral-api-collection`[overdue](Target Date: 2025-06-18),Backend features deployed on all environments[overdue](Target Date: 2025-06-27)",Genki Kadomatsu,Omkar,"Genki Kadomatsu, Omkar, Purvangi Koshti",6/16/2025,,6/27/2025,,5/21/2025 18:40:37,,6/25/2025 17:54:30,,,,Software,,No updates,,,,,,Streaming Integration (Backlog),,
+367e8033-ea03-4f84-8aa2-e8ac73ef32f5,Deployment Pipeline for UI Json,https://linear.app/hedral/project/deployment-pipeline-for-ui-json-15bea1374e0b,,"# Motivation
+
+<What problem does this project solve? Which OKR does it contribute to?>
+
+---
+
+# Brief
+
+<Provide a high level overview of the feature.>
+
+---
+
+# Requirements
+
+* <List requirements. What must be complete for this project to be considered done?>
+
+---
+
+# Owners
+
+Lead: <@ the lead of this project. This person will be responsible for reporting on the status of this project.>
+
+* <@ list of contributors>
+
+---
+
+# Timeline
+
+* <List of Linear milestones>
+
+---
+
+**Reminders**
+
+* Add Linear milestones to this project for intermediate timeline targets
+* Set a Linear project start and end date
+* Set any dependencies between this project and others
+* Assign relevant issues to this project
+* Attach any supplementary materials (Figma designs, Notion docs, etc.)",Planned,Medium,"the IAC changes are implemented to upload ui jsons[done],Implment version tracking and version autoupdate[done],Define Architecture & Workflow for UI JSON Upload Pipeline[done]",Shivam Kadukar,Shivam Kadukar,Shivam Kadukar,5/23/2025,,6/30/2025,,5/22/2025 6:14:45,,6/23/2025 6:29:17,,,,Software,,No updates,,,,,Host Real-estate Developer facing static website (Backlog),,,
+44520991-737b-4747-acd7-13a308e59e15,GUI based Internal Dev tool,https://linear.app/hedral/project/gui-based-internal-dev-tool-d3cb481f789d,,"# Motivation
+
+<What problem does this project solve? Which OKR does it contribute to?>
+
+---
+
+# Brief
+
+<Provide a high level overview of the feature.>
+
+---
+
+# Requirements
+
+* <List requirements. What must be complete for this project to be considered done?>
+
+---
+
+# Owners
+
+Lead: <@ the lead of this project. This person will be responsible for reporting on the status of this project.>
+
+* <@ list of contributors>
+
+---
+
+# Timeline
+
+* <List of Linear milestones>
+
+---
+
+**Reminders**
+
+* Add Linear milestones to this project for intermediate timeline targets
+* Set a Linear project start and end date
+* Set any dependencies between this project and others
+* Assign relevant issues to this project
+* Attach any supplementary materials (Figma designs, Notion docs, etc.)",Planned,Medium,"Release 0.0.1 with limited functionality[done],Migrate all utility scripts in all repo to python[next],dev tool supports configuration and running each repo[unstarted],dev tool supports configuring and running local containers[unstarted]",Shivam Kadukar,Shivam Kadukar,Shivam Kadukar,5/22/2025,,7/11/2025,,5/22/2025 6:16:12,,6/23/2025 6:29:25,,,,Software,,No updates,,,,,,,,
+a1d260de-7f28-439a-8109-1a4ba5cd7a2d,Host Real-estate Developer facing static website,https://linear.app/hedral/project/host-real-estate-developer-facing-static-website-21f36230b5e5,,"# Motivation
+
+<What problem does this project solve? Which OKR does it contribute to?>
+
+---
+
+# Brief
+
+<Provide a high level overview of the feature.>
+
+---
+
+# Requirements
+
+* <List requirements. What must be complete for this project to be considered done?>
+
+---
+
+# Owners
+
+Lead: <@ the lead of this project. This person will be responsible for reporting on the status of this project.>
+
+* <@ list of contributors>
+
+---
+
+# Timeline
+
+* <List of Linear milestones>
+
+---
+
+**Reminders**
+
+* Add Linear milestones to this project for intermediate timeline targets
+* Set a Linear project start and end date
+* Set any dependencies between this project and others
+* Assign relevant issues to this project
+* Attach any supplementary materials (Figma designs, Notion docs, etc.)",Backlog,Medium,"Add backend API to fetch client specific UI Json[next],Implement temporary IAC changes in hedral-prod for fridays test release[unstarted],Implement IAC changes for hosting static website[unstarted],Document the changes required to release a static website[done]",Shivam Kadukar,Shivam Kadukar,Shivam Kadukar,6/30/2025,,7/11/2025,,5/22/2025 6:19:58,,6/23/2025 6:29:17,,,,Software,,No updates,,,,,,Deployment Pipeline for UI Json (Planned),,
+9c590c89-f7dc-44d5-a7b1-0147f0d96d54,Automate GH Scripts Deployment to Rhino Instances,https://linear.app/hedral/project/automate-gh-scripts-deployment-to-rhino-instances-3cb715f58973,,"# Motivation
+
+<What problem does this project solve? Which OKR does it contribute to?>
+
+---
+
+# Brief
+
+<Provide a high level overview of the feature.>
+
+---
+
+# Requirements
+
+* <List requirements. What must be complete for this project to be considered done?>
+
+---
+
+# Owners
+
+Lead: <@ the lead of this project. This person will be responsible for reporting on the status of this project.>
+
+* <@ list of contributors>
+
+---
+
+# Timeline
+
+* <List of Linear milestones>
+
+---
+
+**Reminders**
+
+* Add Linear milestones to this project for intermediate timeline targets
+* Set a Linear project start and end date
+* Set any dependencies between this project and others
+* Assign relevant issues to this project
+* Attach any supplementary materials (Figma designs, Notion docs, etc.)",Backlog,Medium,,Shivam Kadukar,Shivam Kadukar,Shivam Kadukar,,,,,5/22/2025 6:25:14,,5/22/2025 9:02:35,,,,Software,,No updates,,,,,,,,
+a5ad4783-ad06-4522-9c8e-9b9d06e5f96b,Error Handling Implementation,https://linear.app/hedral/project/error-handling-implementation-efa3f55cadec,Implement robust error handling mechanisms across the application's UI to enhance user experience and improve debugging efficiency.,"# Motivation
+
+Currently, errors in the UI are not consistently handled or displayed to users, resulting in confusion, poor user experience, and difficulty in debugging. Implementing comprehensive error handling directly aligns with our OKR to enhance application reliability and user trust. It ensures smoother user interactions, better diagnostics, and faster resolution of UI issues.
+
+---
+
+# Brief
+
+This feature involves implementing a centralized error-handling solution in a React and TypeScript environment. The implementation will include handling common UI errors gracefully, providing informative feedback to users, and ensuring all errors are logged clearly for developer troubleshooting.
+
+---
+
+# Requirements
+
+* Implement an Error Boundary in React to catch and handle JavaScript errors occurring anywhere in the UI.
+* Create a reusable Error Component to display user-friendly error messages and provide helpful suggestions.
+* Set up global error handling using context or state management libraries (e.g.,  Zustand) to centrally manage error states.
+* Ensure type-safety in error handling logic using TypeScript.
+* Write unit tests and integration tests to validate error-handling logic.
+
+---
+
+# Owners
+
+Lead: @yankun 
+
+* @arushi.singh 
+
+---
+
+# Timeline
+
+* Implement React Error Boundary - @arushi.singh 0.5 day
+* Central Error Handlers (Context, Hooks, and Services) - @arushi.singh  - 1 day
+* Create Reusable Error Display Component - Snackbar and Action Dialog - @arushi.singh  - 1 day
+* **Set Up Centralized Error State Management -** @arushi.singh  - 1 day
+* **Handle API Errors Gracefully -** @arushi.singh  - 1 day
+* Type-Safe Error Handling - @arushi.singh  - 0.5 day
+
+---
+
+**Reminders**
+
+* Add Linear milestones to this project for intermediate timeline targets
+* Set a Linear project start and end date
+* Set any dependencies between this project and others
+* Assign relevant issues to this project
+* Attach any supplementary materials (Figma designs, Notion docs, etc.)",Completed,Medium,"Central Error Handlers (Context, Hooks, and Services)[done],Type-Safe Error Handling [done],Handle API Errors Gracefully[done],Implement React Error Boundary[done],Create Reusable Error Display Component - Snackbar and Action Dialog[done]",Arushi Singh,yankun@hedral.co,"Arushi Singh, yankun@hedral.co",5/22/2025,,5/30/2025,,5/22/2025 10:35:12,,6/10/2025 12:21:45,6/10/2025 12:21:45,,,Software,,No updates,,,,,,,,
+3b7eaa03-e3c1-4a5d-b5bd-12d0b59bc358,Interactive map,https://linear.app/hedral/project/interactive-map-bf8fd2a9619e,,"# Motivation
+
+<What problem does this project solve? Which OKR does it contribute to?>
+
+---
+
+# Brief
+
+<Provide a high level overview of the feature.>
+
+---
+
+# Requirements
+
+* <List requirements. What must be complete for this project to be considered done?>
+
+---
+
+# Owners
+
+Lead: <@ the lead of this project. This person will be responsible for reporting on the status of this project.>
+
+* <@ list of contributors>
+
+---
+
+# Timeline
+
+* <List of Linear milestones>
+
+---
+
+**Reminders**
+
+* Add Linear milestones to this project for intermediate timeline targets
+* Set a Linear project start and end date
+* Set any dependencies between this project and others
+* Assign relevant issues to this project
+* Attach any supplementary materials (Figma designs, Notion docs, etc.)",Backlog,High,,Drashti Joshi,yankun@hedral.co,"Shailja Atkotiya, yankun@hedral.co",5/19/2025,,6/13/2025,,5/23/2025 7:09:54,,6/12/2025 13:26:01,,,,Software,,No updates,,,,,,,,
+ce550b87-0841-4b2d-80dc-80710046f981,Developer-facing web skeleton,https://linear.app/hedral/project/developer-facing-web-skeleton-613e09df50b8,,"# Motivation
+
+Establish a non-functional website that demonstrates the UI layout and component designs from the UIUX team.
+
+---
+
+# Brief
+
+* Non-function website
+* Reuse existing UI components
+* Create layouts based on the Figma design
+* Create dummy data to support progressive loadings of the design iterations
+* Create a fake progressive loading scenario to test the client-side streaming.
+
+---
+
+# Requirements
+
+* Deployment of the skeleton website.
+* Main UI features that satisfy the product preliminary design.
+
+---
+
+# Owners
+
+Lead: @yankun 
+
+* <@ list of contributors>
+
+---
+
+# Timeline
+
+* <List of Linear milestones>
+
+---
+
+**Reminders**
+
+* Add Linear milestones to this project for intermediate timeline targets
+* Set a Linear project start and end date
+* Set any dependencies between this project and others
+* Assign relevant issues to this project
+* Attach any supplementary materials (Figma designs, Notion docs, etc.)",In Progress,Urgent,"Website layout[next],Progressive loading (fake streaming)[unstarted]",yankun@hedral.co,yankun@hedral.co,yankun@hedral.co,5/27/2025,,5/30/2025,,5/27/2025 21:47:10,5/27/2025 21:47:30,5/27/2025 21:47:34,,,,Software,,No updates,,,,,,,,
+3a289915-d4bb-4bba-b4b6-bec0f3dd61a9,Commit Refactor,https://linear.app/hedral/project/commit-refactor-8b2e85efc8b7,,"# Motivation
+
+Our current `commits` state tree has grown organically and now contains duplicated sources (`loadedCommits`, individual “*selected-commit*” atoms, ad-hoc flags for merging/operations, etc.).
+
+* Pain points
+  * **Coupling & duplication** – the same commit can live in 3 different slices, causing stale UI or race conditions (see “commit_id → merging operation → viewpoint scene” loop in the second diagram).
+  * **Complex workflows** – creating, renaming, un-committing, and submitting a commit each trigger different Redux paths, making the yellow “operations” swim lane hard to follow.
+  * **Inconsistent UX** – dropdowns and scene viewports don’t stay in sync; bulk operations (merge, discard) are hard to implement.
+* Contributes to OKR **“Increase developer velocity by 30 %”** and **“Reduce production bugs related to state mis-sync to zero in Q3.”**
+
+---
+
+# Brief
+
+We will **collapse all commit-related slices into a single normalised store (**`commitStore`) with declarative selectors and side-effect-free reducers.
+*Blue* nodes in the diagram (e.g. `loadedCommit` container) become façade hooks; *yellow* nodes (operations) turn into actions. 
+The refactor also revises the user workflow:
+
+1. **Add commit to viewport** → validates existence → creates/overwrites a viewport entry (green nodes).
+2. **Edit, merge, and discard** are expressed as *operations* on a single source of truth, rather than separate states.
+3. **Submit** now fires one consolidated thunk (`commit/submitCommit`) that updates the name, persists to the backend, and clears local dirty flags.
+
+Clearer boundaries enable us to integrate new features (branching, snapshots) with minimal disruption.
+
+---
+
+# Requirements
+
+* <List requirements. What must be complete for this project to be considered done?>
+
+---
+
+# Owners
+
+Lead: @yankun 
+
+* @yankun @arushi.singh 
+
+---
+
+# Timeline
+
+* <List of Linear milestones>
+
+---
+
+**Reminders**
+
+* Add Linear milestones to this project for intermediate timeline targets
+* Set a Linear project start and end date
+* Set any dependencies between this project and others
+* Assign relevant issues to this project
+* Attach any supplementary materials (Figma designs, Notion docs, etc.)",In Progress,High,"load Projects state, ui refactor[done],viewports and loadedProjectsCommit state and ui refactor[next],designpathtree state ui refactor[done]",Arushi Singh,yankun@hedral.co,"Arushi Singh, yankun@hedral.co",6/2/2025,,,,6/6/2025 6:54:14,6/6/2025 6:54:14,6/11/2025 10:51:29,,,,Software,,No updates,,,,,,,,
+da22bece-3d82-49a0-a575-5a28296c2332,Load Solver,https://linear.app/hedral/project/load-solver-722caba8f91e,,,In Progress,High,,Keyan,,,6/17/2025,,,,6/17/2025 20:11:03,6/17/2025 20:11:03,6/17/2025 20:13:52,,,,Product,,No updates,,,,,,,,
+0d7fdb5a-14c2-41e1-b0cf-8a6564342f39,Desktop Dedicated UI,https://linear.app/hedral/project/desktop-dedicated-ui-d79f8b9cac76,,"This project is related to developing a custom, dedicated User Interface for the desktop application.
+
+At the moment we use the native editing environment from our preferred CAD application (Rhino), and the logic engine runs within that environment.
+
+Over time, we'd like to explore moving to a custom front end, which will give us more control over the user interactions, both in terms of functionality and aesthetics.
+
+The project would start with an exploratory phased, testing different frameworks and building MVPs. Some immediately obvious candidates we should consider:
+
+# Game Engines
+
+* Unity
+  * Natively C#, so highly compatible with our core codebase. 
+  * Well documented, very popular, robust ecosystem and LLM training
+  * Allows for WebGL Builds, for web deployment
+  * Can run Rhino directly within Unity
+  * Con: Has a licensing model, and is closed source
+* Godot
+  * More contemporary
+  * Open Source
+  * Partial C# support, but strongly encouraged to develop using their custom language ""GDScript""
+
+# Web Frameworks
+
+* React Three FIber
+  * Built on ThreeJS
+  * Same tech stack as our Concepting Tool, so there could be high re-use
+  * On the desktop, could be packaged into an Electron application
+  * Possible that interaction design will be a much bigger lift
+  * We should test running the core logic directly within WASM
+
+# Ground-Up 3D Application
+
+* Could use C++ libraries such as Qt
+* Could use C# libraries such as Avalonia
+* Full freedom and customization, but also have to build everything from scratch",Planned,No priority,"Unity MVP[next],R3F MVP[unstarted],Core Tech Selection + UI Strategy Development[unstarted],Establish UI Framework[unstarted]",Keyan,,,,,,,6/20/2025 13:57:38,,6/20/2025 13:57:38,,,,Product,,No updates,,,,,,,,
+91bfd43b-79f1-4081-a628-56f0dc997292,End-to-End Demo Project,https://linear.app/hedral/project/end-to-end-demo-project-77c518b8451b,Demo of functionality from SD to CD for Multifamily Example Project,,In Progress,No priority,,Keyan,,,6/20/2025,,,,6/20/2025 14:09:14,6/20/2025 14:09:14,6/20/2025 14:09:14,,,,Product,,No updates,,,,,,,,
+7b889024-ba4f-4a76-88de-70bb03333828,SheetWise,https://linear.app/hedral/project/sheetwise-99f7e97f278a,Submittal review automation tool proof-of-concept,"# Motivation
+
+Submittal review is time consuming and prone to error.
+
+---
+
+# Brief
+
+Develop a tool that drives lift by automating the process of reviewing submittals.
+
+---
+
+# Requirements
+
+* Develop a proof-of-concept
+* Test the proof-of-concept to prove feasibility
+* This work is highly exploratory, so a lot of the features are built on the fly as we learn more about the problem space
+
+---
+
+# Owners
+
+Leads: @simas, @genki 
+
+---
+
+# Timeline
+
+This is continuous exploratory work, so milestones will be added as we continue building.
+
+---
+
+**Reminders**
+
+* Add Linear milestones to this project for intermediate timeline targets
+* Set a Linear project start and end date
+* Set any dependencies between this project and others
+* Assign relevant issues to this project
+* Attach any supplementary materials (Figma designs, Notion docs, etc.)",Backlog,No priority,Version 2 complete[next],Genki Kadomatsu,Genki Kadomatsu,Genki Kadomatsu,6/2/2025,,7/31/2025,,6/26/2025 0:27:43,,6/26/2025 0:34:25,,,,Software,,No updates,,,,,,,,
+96b9dbba-413c-42a0-91d9-c490d6f7b303,Knowledge Base/Workflow Builder,https://linear.app/hedral/project/knowledge-baseworkflow-builder-a64d67143c3f,A generalized LLM api/interface that leverages organizational knowledge and improves over time.,"# Motivation
+
+Up to this point we've built several LLM proof of concepts. At this point it is becoming clear that they will be useful for our product in several ways, so the aim of this project is to explore and set a working foundation that we can build LLM features on top of.
+
+---
+
+# Brief
+
+Build a system that leverages
+
+* Organizational knowledge stores (Notion, Drive, etc.)
+* A user-maintainable knowledge base
+* Our existing product primitives
+* Memories from user conversations built up over time
+
+---
+
+# Requirements
+
+* The bullet points listed above
+
+---
+
+# Owners
+
+Lead: @genki 
+
+---
+
+# Timeline
+
+Timeline tracked with milestones.
+
+---
+
+**Reminders**
+
+* Add Linear milestones to this project for intermediate timeline targets
+* Set a Linear project start and end date
+* Set any dependencies between this project and others
+* Assign relevant issues to this project
+* Attach any supplementary materials (Figma designs, Notion docs, etc.)",Backlog,No priority,"End-to-end proof-of-concept complete[overdue](Target Date: 2025-06-30),Productionized APIs that can be leveraged in the product[unstarted](Target Date: 2025-07-31),Design document for productionizing knowledge base/workflow builder[unstarted](Target Date: 2025-07-15)",Genki Kadomatsu,Genki Kadomatsu,Genki Kadomatsu,6/23/2025,,7/31/2025,,6/26/2025 0:32:58,,6/26/2025 0:33:46,,,,Software,,No updates,,,,,,,,
+9e620b0f-3271-403f-948d-f6d407ee30ea,July 2025 Release,https://linear.app/hedral/project/july-2025-release-7f3cbaa21ff5,"This collects and tracks all the MVP tickets to be finished, tested and verified before end of the July 2025.","# Motivation
+
+This is a release bucket to track progress, track and work on the resolution of the impediments, if any for the July release.
+
+---
+
+# Brief
+
+Bucket for MVP items for July 2025 release.
+
+---
+
+# Requirements
+
+* All MVP tagged tickets are completed and verified to be working as expected.
+
+---
+
+# Owners
+
+Lead: <@ the lead of this project. This person will be responsible for reporting on the status of this project.>
+
+* <@ list of contributors>
+
+---
+
+# Timeline
+
+* July 31st, 2025
+
+---
+
+**Reminders**
+
+None",In Progress,Urgent,,Ankit Sowle,,,6/30/2025,,7/31/2025,,6/30/2025 15:37:17,6/30/2025 15:46:47,7/2/2025 7:26:23,,,,Software,,On track,"🟢 On track | Ankit Sowle posted an update on Jun 30
+
+Team is working on MVP tickets involving below items-
+
+* 3D interactions
+  * Grasshopper services (currently dummy data)
+  * Auth pop-up window
+    
+    With overall status, the delivery seems to be on-track for July release.",6/30/2025,,,,,MVP,
+5bdb07bb-54fe-4db9-91f4-def055b697c6,test project1,https://linear.app/hedral/project/test-project1-70c63a8cce0a,,,Backlog,No priority,"M1[next],M2[unstarted]",Drashti Joshi,,,,,7/10/2025,,7/8/2025 9:18:28,,7/8/2025 9:18:28,,,,Software,Test 1,No updates,,,,,,,,dd40e991-3d93-4782-8cd5-57f1d46deded

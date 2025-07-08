@@ -1097,6 +1097,7 @@ def performance_dashboard(df):
                         title="📊 Estimated vs Completed Points", barmode='group')
             st.plotly_chart(fig, use_container_width=True)
 
+
 def okr_dashboard(df):
     """OKR Tracking Dashboard"""
     st.markdown('<div class="section-header">🎯 OKR Tracking</div>', unsafe_allow_html=True)

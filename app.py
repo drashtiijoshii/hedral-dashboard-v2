@@ -18,66 +18,628 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for beautiful design
+# Custom CSS with consistent spacing system and beautiful design
 st.markdown("""
 <style>
+    /* CSS Custom Properties for Consistent Spacing */
+    :root {
+        --spacing-xs: 0.25rem;   /* 4px */
+        --spacing-sm: 0.5rem;    /* 8px */
+        --spacing-md: 1rem;      /* 16px */
+        --spacing-lg: 1.5rem;    /* 24px */
+        --spacing-xl: 2rem;      /* 32px */
+        --spacing-2xl: 3rem;     /* 48px */
+        --spacing-3xl: 4rem;     /* 64px */
+        
+        --border-radius-sm: 8px;
+        --border-radius-md: 12px;
+        --border-radius-lg: 16px;
+        --border-radius-xl: 20px;
+        
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+        --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+        --shadow-colored: 0 4px 16px rgba(102, 126, 234, 0.15);
+        
+        --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-surface: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        --gradient-subtle: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+    
+    /* Global spacing reset and consistency */
+    .stApp {
+        padding: 0 !important;
+    }
+    
+    .main .block-container {
+        padding: var(--spacing-lg) var(--spacing-md) !important;
+        max-width: 100% !important;
+    }
+    
+    /* Responsive design - Mobile first approach */
     .main-header {
-        font-size: 2.5rem;
+        font-size: clamp(1.4rem, 3vw, 2rem);
         font-weight: 700;
         color: white;
         text-align: center;
-        padding: 2rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        border-radius: 15px;
-        margin-bottom: 2rem;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        padding: var(--spacing-lg) var(--spacing-xl);
+        background: var(--gradient-primary);
+        border-radius: var(--border-radius-lg);
+        margin-bottom: var(--spacing-lg);
+        box-shadow: var(--shadow-lg);
     }
     
     .section-header {
         color: #2c3e50;
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin: 1.5rem 0 1rem 0;
-        padding: 1rem;
-        background: #f8f9fa;
-        border-radius: 10px;
-        border-left: 5px solid #3498db;
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
+        font-weight: 700;
+        margin: var(--spacing-xl) 0 var(--spacing-lg) 0;
+        padding: var(--spacing-lg) var(--spacing-xl);
+        background: var(--gradient-subtle);
+        border-radius: var(--border-radius-lg);
+        border: 1px solid rgba(102, 126, 234, 0.1);
+        box-shadow: var(--shadow-sm);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
     }
     
+    .section-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-primary);
+        border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+    }
+    
+    .section-header:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-colored);
+    }
+    
+    /* Consistent Tab Styling */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 20px;
+        gap: var(--spacing-md);
         background: #f8f9fa;
-        border-radius: 15px;
-        padding: 1rem;
+        border-radius: var(--border-radius-lg);
+        padding: var(--spacing-md);
+        flex-wrap: wrap;
+        margin-bottom: var(--spacing-lg);
     }
     
     .stTabs [data-baseweb="tab"] {
-        height: 50px;
-        padding: 0 25px;
+        height: clamp(40px, 6vw, 50px);
+        padding: var(--spacing-sm) var(--spacing-lg);
         background: white;
-        border-radius: 10px;
+        border-radius: var(--border-radius-md);
         font-weight: 600;
         border: 2px solid transparent;
+        font-size: clamp(0.8rem, 2vw, 1rem);
+        margin-bottom: var(--spacing-sm);
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .stTabs [data-baseweb="tab"]:hover {
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-md);
     }
     
     .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: var(--gradient-primary);
         color: white;
+        box-shadow: var(--shadow-colored);
     }
     
     .info-box {
-        background: #e8f6f3;
-        padding: 1rem;
-        border-radius: 8px;
-        border-left: 4px solid #1abc9c;
-        margin: 1rem 0;
+        background: linear-gradient(135deg, #e8f6f3 0%, #f0f9f7 100%);
+        padding: var(--spacing-lg);
+        border-radius: var(--border-radius-md);
+        border: 1px solid rgba(26, 188, 156, 0.2);
+        box-shadow: var(--shadow-sm);
+        margin: var(--spacing-lg) 0;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .info-box:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(26, 188, 156, 0.15);
+    }
+    
+    /* Enhanced Streamlit spinner - bigger and centered */
+    div[data-testid="stSpinner"] {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background: rgba(255, 255, 255, 0.9) !important;
+        backdrop-filter: blur(3px) !important;
+        z-index: 9999 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    div[data-testid="stSpinner"] > div {
+        background: rgba(255, 255, 255, 0.95) !important;
+        border-radius: 20px !important;
+        padding: clamp(1.5rem, 4vw, 2.5rem) !important;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.15) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-width: 200px !important;
+        max-width: 90vw !important;
+    }
+    
+    div[data-testid="stSpinner"] .stSpinner {
+        width: clamp(50px, 8vw, 80px) !important;
+        height: clamp(50px, 8vw, 80px) !important;
+    }
+    
+    div[data-testid="stSpinner"] .stSpinner > div {
+        width: clamp(50px, 8vw, 80px) !important;
+        height: clamp(50px, 8vw, 80px) !important;
+        border-width: clamp(3px, 1vw, 5px) !important;
+        border-color: #f3f3f3 #f3f3f3 #f3f3f3 #667eea !important;
+    }
+    
+    div[data-testid="stSpinner"] p {
+        color: #2c3e50 !important;
+        font-size: clamp(1rem, 3vw, 1.3rem) !important;
+        font-weight: 600 !important;
+        margin: 1rem 0 0 0 !important;
+        text-align: center !important;
+        animation: pulse 1.5s ease-in-out infinite alternate !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+    
+    @keyframes pulse {
+        from { opacity: 0.7; }
+        to { opacity: 1; }
+    }
+    
+    /* Enhanced Metric Cards with Consistent Spacing */
+    div[data-testid="metric-container"] {
+        background: var(--gradient-surface) !important;
+        border: 1px solid rgba(102, 126, 234, 0.1) !important;
+        border-radius: var(--border-radius-lg) !important;
+        padding: var(--spacing-lg) var(--spacing-xl) !important;
+        margin: var(--spacing-md) 0 !important;
+        box-shadow: var(--shadow-md) !important;
+        transition: all 0.3s ease !important;
+        position: relative !important;
+        overflow: hidden !important;
+    }
+    
+    div[data-testid="metric-container"]:hover {
+        transform: translateY(-4px) !important;
+        box-shadow: var(--shadow-lg) !important;
+        border-color: rgba(102, 126, 234, 0.2) !important;
+    }
+    
+    div[data-testid="metric-container"]::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 4px !important;
+        background: var(--gradient-primary) !important;
+        border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0 !important;
+    }
+    
+        /* Metric labels (titles) */
+    div[data-testid="metric-container"] > div:first-child {
+        font-size: clamp(0.85rem, 2.5vw, 1rem) !important;
+        font-weight: 600 !important;
+        color: #4a5568 !important;
+        margin-bottom: var(--spacing-sm) !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+    }
+    
+    /* Metric values (numbers) */
+    div[data-testid="metric-container"] div[data-testid="metric-value"] {
+        font-size: clamp(1.8rem, 5vw, 2.5rem) !important;
+        font-weight: 700 !important;
+        color: #2d3748 !important;
+        line-height: 1.2 !important;
+        margin: var(--spacing-xs) 0 !important;
+        background: var(--gradient-primary) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+    }
+    
+    /* Metric delta (change indicators) */
+    div[data-testid="metric-container"] div[data-testid="metric-delta"] {
+        font-size: clamp(0.8rem, 2.2vw, 0.95rem) !important;
+        font-weight: 500 !important;
+        margin-top: var(--spacing-xs) !important;
+    }
+     
+     /* Enhanced Button Styling with Consistent Spacing */
+     .stButton > button {
+         background: var(--gradient-primary) !important;
+         color: white !important;
+         border: none !important;
+         border-radius: var(--border-radius-md) !important;
+         padding: var(--spacing-md) var(--spacing-lg) !important;
+         font-weight: 600 !important;
+         font-size: 0.95rem !important;
+         transition: all 0.3s ease !important;
+         box-shadow: var(--shadow-colored) !important;
+         text-transform: none !important;
+         letter-spacing: 0.5px !important;
+         margin: var(--spacing-sm) 0 !important;
+     }
+     
+     .stButton > button:hover {
+         transform: translateY(-2px) !important;
+         box-shadow: var(--shadow-lg) !important;
+         background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%) !important;
+     }
+     
+     .stButton > button:active {
+         transform: translateY(0px) !important;
+         box-shadow: var(--shadow-colored) !important;
+     }
+     
+     /* Secondary button styling */
+     .stButton > button[kind="secondary"] {
+         background: var(--gradient-subtle) !important;
+         color: #4a5568 !important;
+         border: 1px solid rgba(102, 126, 234, 0.2) !important;
+         box-shadow: var(--shadow-sm) !important;
+     }
+     
+     .stButton > button[kind="secondary"]:hover {
+         background: var(--gradient-subtle) !important;
+         border-color: rgba(102, 126, 234, 0.3) !important;
+         box-shadow: var(--shadow-md) !important;
+     }
+    
+              /* Enhanced Form Inputs with Consistent Spacing */
+     .stTextInput > div > div > input {
+         border: 1px solid rgba(102, 126, 234, 0.2) !important;
+         border-radius: var(--border-radius-md) !important;
+         padding: var(--spacing-md) var(--spacing-lg) !important;
+         font-size: 0.95rem !important;
+         transition: all 0.3s ease !important;
+         background: var(--gradient-surface) !important;
+         box-shadow: var(--shadow-sm) !important;
+         margin-bottom: var(--spacing-sm) !important;
+     }
+     
+     .stTextInput > div > div > input:focus {
+         border-color: #667eea !important;
+         box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1), var(--shadow-md) !important;
+         outline: none !important;
+     }
+     
+     /* Select boxes */
+     .stSelectbox > div > div {
+         border: 1px solid rgba(102, 126, 234, 0.2) !important;
+         border-radius: var(--border-radius-md) !important;
+         background: var(--gradient-surface) !important;
+         box-shadow: var(--shadow-sm) !important;
+         transition: all 0.3s ease !important;
+         margin-bottom: var(--spacing-sm) !important;
+     }
+     
+     .stSelectbox > div > div:hover {
+         border-color: rgba(102, 126, 234, 0.3) !important;
+         box-shadow: var(--shadow-md) !important;
+     }
+     
+     /* Radio buttons */
+     .stRadio > div {
+         background: var(--gradient-surface) !important;
+         border-radius: var(--border-radius-md) !important;
+         padding: var(--spacing-lg) !important;
+         border: 1px solid rgba(102, 126, 234, 0.1) !important;
+         box-shadow: var(--shadow-sm) !important;
+         margin-bottom: var(--spacing-sm) !important;
+     }
+     
+     /* Enhanced Charts with Consistent Spacing */
+     .js-plotly-plot {
+         width: 100% !important;
+         height: auto !important;
+         border-radius: var(--border-radius-md) !important;
+         overflow: hidden !important;
+         box-shadow: var(--shadow-md) !important;
+         margin: var(--spacing-md) 0 !important;
+     }
+    
+         /* Consistent Column Spacing */
+     .stColumn {
+         padding: var(--spacing-sm) !important;
+     }
+     
+     .stColumn > div {
+         margin-bottom: var(--spacing-md) !important;
+     }
+    
+    @media (max-width: 768px) {
+        .stTabs [data-baseweb="tab-list"] {
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+                 .stTabs [data-baseweb="tab"] {
+             min-width: calc(33.333% - var(--spacing-md));
+             text-align: center;
+             margin: var(--spacing-xs);
+         }
+         
+         /* Stack metrics vertically on mobile */
+         .stColumn > div {
+             margin-bottom: var(--spacing-md);
+         }
+    }
+    
+    @media (max-width: 480px) {
+        .stTabs [data-baseweb="tab"] {
+            min-width: calc(50% - var(--spacing-xs));
+            padding: 0 var(--spacing-sm);
+            font-size: 0.85rem;
+        }
+        
+        .main-header {
+            margin-bottom: var(--spacing-lg);
+            padding: var(--spacing-lg);
+        }
+        
+        /* Sidebar improvements for mobile */
+        .stSidebar {
+            width: 100% !important;
+        }
+        
+        /* Better spacing for mobile */
+        .stSelectbox, .stTextInput, .stButton {
+            margin-bottom: var(--spacing-sm) !important;
+        }
+        
+        .main .block-container {
+            padding: var(--spacing-md) var(--spacing-sm) !important;
+        }
+    }
+     
+     /* Enhanced Messages with Consistent Spacing */
+     .stSuccess > div {
+         background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%) !important;
+         border: 1px solid rgba(72, 187, 120, 0.3) !important;
+         border-radius: var(--border-radius-md) !important;
+         padding: var(--spacing-lg) var(--spacing-xl) !important;
+         color: #2f855a !important;
+         font-weight: 500 !important;
+         box-shadow: var(--shadow-sm) !important;
+         margin: var(--spacing-md) 0 !important;
+     }
+     
+     .stError > div {
+         background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%) !important;
+         border: 1px solid rgba(245, 101, 101, 0.3) !important;
+         border-radius: var(--border-radius-md) !important;
+         padding: var(--spacing-lg) var(--spacing-xl) !important;
+         color: #c53030 !important;
+         font-weight: 500 !important;
+         box-shadow: var(--shadow-sm) !important;
+         margin: var(--spacing-md) 0 !important;
+     }
+     
+     .stInfo > div {
+         background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%) !important;
+         border: 1px solid rgba(66, 153, 225, 0.3) !important;
+         border-radius: var(--border-radius-md) !important;
+         padding: var(--spacing-lg) var(--spacing-xl) !important;
+         color: #2c5282 !important;
+         font-weight: 500 !important;
+         box-shadow: var(--shadow-sm) !important;
+         margin: var(--spacing-md) 0 !important;
+     }
+     
+     /* Enhanced Sidebar with Perfect Styling */
+     .stSidebar {
+         background: var(--gradient-subtle) !important;
+         border-right: 1px solid rgba(102, 126, 234, 0.15) !important;
+     }
+     
+     .stSidebar > div {
+         padding: var(--spacing-lg) var(--spacing-md) !important;
+     }
+     
+     .stSidebar h2 {
+         color: #2d3748 !important;
+         font-weight: 700 !important;
+         margin-bottom: var(--spacing-lg) !important;
+         padding-bottom: var(--spacing-sm) !important;
+         border-bottom: 2px solid rgba(102, 126, 234, 0.15) !important;
+         font-size: 1.25rem !important;
+     }
+     
+     /* Enhanced Sidebar Radio Buttons */
+     .stSidebar .stRadio > div {
+         background: white !important;
+         border: 1px solid rgba(102, 126, 234, 0.15) !important;
+         border-radius: var(--border-radius-md) !important;
+         padding: var(--spacing-md) !important;
+         margin: var(--spacing-sm) 0 var(--spacing-lg) 0 !important;
+         box-shadow: var(--shadow-sm) !important;
+         transition: all 0.3s ease !important;
+     }
+     
+     .stSidebar .stRadio > div:hover {
+         border-color: rgba(102, 126, 234, 0.25) !important;
+         box-shadow: var(--shadow-md) !important;
+         transform: translateY(-1px) !important;
+     }
+     
+     .stSidebar .stRadio label {
+         color: #4a5568 !important;
+         font-weight: 500 !important;
+         font-size: 0.95rem !important;
+     }
+     
+     /* Enhanced Sidebar Labels */
+     .stSidebar .stRadio > label {
+         color: #2d3748 !important;
+         font-weight: 600 !important;
+         font-size: 1rem !important;
+         margin-bottom: var(--spacing-sm) !important;
+     }
+     
+     /* Enhanced Info Box in Sidebar */
+     .stSidebar .info-box {
+         background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%) !important;
+         border: 1px solid rgba(59, 130, 246, 0.2) !important;
+         border-radius: var(--border-radius-md) !important;
+         padding: var(--spacing-md) !important;
+         margin: var(--spacing-md) 0 !important;
+         box-shadow: var(--shadow-sm) !important;
+         font-size: 0.85rem !important;
+         line-height: 1.4 !important;
+     }
+     
+     .stSidebar .info-box:hover {
+         transform: translateY(-1px) !important;
+         box-shadow: var(--shadow-md) !important;
+     }
+     
+     /* Enhanced Sidebar Text Inputs */
+     .stSidebar .stTextInput > div > div > input {
+         border: 1px solid rgba(102, 126, 234, 0.2) !important;
+         border-radius: var(--border-radius-md) !important;
+         padding: var(--spacing-sm) var(--spacing-md) !important;
+         font-size: 0.9rem !important;
+         background: white !important;
+         box-shadow: var(--shadow-sm) !important;
+         margin-bottom: var(--spacing-md) !important;
+     }
+     
+     .stSidebar .stTextInput > div > div > input:focus {
+         border-color: #667eea !important;
+         box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1), var(--shadow-md) !important;
+     }
+     
+     /* Enhanced Sidebar Buttons */
+     .stSidebar .stButton > button {
+         width: 100% !important;
+         background: var(--gradient-primary) !important;
+         color: white !important;
+         border: none !important;
+         border-radius: var(--border-radius-md) !important;
+         padding: var(--spacing-sm) var(--spacing-md) !important;
+         font-weight: 600 !important;
+         font-size: 0.9rem !important;
+         margin: var(--spacing-sm) 0 var(--spacing-md) 0 !important;
+         box-shadow: var(--shadow-sm) !important;
+         transition: all 0.3s ease !important;
+     }
+     
+     .stSidebar .stButton > button:hover {
+         transform: translateY(-2px) !important;
+         box-shadow: var(--shadow-colored) !important;
+     }
+     
+     /* Enhanced Success Messages in Sidebar */
+     .stSidebar .stSuccess > div {
+         background: linear-gradient(135deg, #f0fff4 0%, #dcfce7 100%) !important;
+         border: 1px solid rgba(34, 197, 94, 0.3) !important;
+         border-radius: var(--border-radius-md) !important;
+         padding: var(--spacing-sm) var(--spacing-md) !important;
+         margin: var(--spacing-sm) 0 !important;
+         font-size: 0.85rem !important;
+         color: #15803d !important;
+         box-shadow: var(--shadow-sm) !important;
+     }
+    
+    @media (max-width: 320px) {
+        .stTabs [data-baseweb="tab"] {
+            min-width: 100%;
+            margin: var(--spacing-xs) 0;
+        }
+        
+        div[data-testid="stSpinner"] p {
+            font-size: 0.9rem !important;
+            white-space: normal !important;
+            line-height: 1.2 !important;
+        }
+        
+        .main .block-container {
+            padding: var(--spacing-sm) var(--spacing-xs) !important;
+        }
     }
 </style>
 """, unsafe_allow_html=True)
 
+def show_loading_overlay(message="Loading..."):
+    """Custom loading overlay that definitely works"""
+    return st.markdown(f"""
+    <div style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(3px);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    ">
+        <div style="
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            text-align: center;
+            min-width: 200px;
+            max-width: 90vw;
+        ">
+            <div style="
+                width: 60px;
+                height: 60px;
+                border: 4px solid #f3f3f3;
+                border-top: 4px solid #667eea;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+                margin: 0 auto 1rem auto;
+            "></div>
+            <p style="
+                color: #2c3e50;
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin: 0;
+                animation: pulse 1.5s ease-in-out infinite alternate;
+            ">{message}</p>
+        </div>
+    </div>
+    <style>
+        @keyframes spin {{
+            0% {{ transform: rotate(0deg); }}
+            100% {{ transform: rotate(360deg); }}
+        }}
+        @keyframes pulse {{
+            from {{ opacity: 0.7; }}
+            to {{ opacity: 1; }}
+        }}
+    </style>
+    """, unsafe_allow_html=True)
+
 def main():
     # Header
-    st.markdown('<div class="main-header">🚀 Unified Scrum Dashboard Suite</div>', unsafe_allow_html=True)
+    st.markdown('<div class="main-header">Dashboard</div>', unsafe_allow_html=True)
     
     # Sidebar
     with st.sidebar:
@@ -110,20 +672,30 @@ def main():
                     if "docs.google.com/spreadsheets" not in sheet_url:
                         st.error("❌ Please enter a valid Google Sheets URL")
                     else:
-                        with st.spinner("Connecting to Google Sheet..."):
-                            connector = GoogleSheetConnector()
-                            if connector.connect_with_url(sheet_url):
-                                st.success("✅ Connected successfully!")
-                                st.session_state.connector = connector
-                                st.rerun()  # Refresh to show connection status
-                            else:
-                                st.error("❌ Connection failed")
-                                st.markdown("""
-                                **Troubleshooting:**
-                                - Make sure your sheet is publicly accessible
-                                - Check if the URL is complete and correct
-                                - Try sharing with 'Anyone with the link can view'
-                                """)
+                        # Show custom loading overlay
+                        loading_placeholder = st.empty()
+                        with loading_placeholder:
+                            show_loading_overlay("🔌 Connecting to Google Sheet...")
+                        
+                        # Perform connection
+                        connector = GoogleSheetConnector()
+                        success = connector.connect_with_url(sheet_url)
+                        
+                        # Clear loading overlay
+                        loading_placeholder.empty()
+                        
+                        if success:
+                            st.success("✅ Connected successfully!")
+                            st.session_state.connector = connector
+                            st.rerun()  # Refresh to show connection status
+                        else:
+                            st.error("❌ Connection failed")
+                            st.markdown("""
+                            **Troubleshooting:**
+                            - Make sure your sheet is publicly accessible
+                            - Check if the URL is complete and correct
+                            - Try sharing with 'Anyone with the link can view'
+                            """)
             
             # Show connection status
             if 'connector' in st.session_state:
@@ -194,22 +766,34 @@ def scrum_dashboard(df):
     """Scrum Review Dashboard"""
     st.markdown('<div class="section-header">🔁 Scrum Review & Retrospective</div>', unsafe_allow_html=True)
     
-    # Sprint filter - handle mixed data types safely
+    # Sprint filter - handle mixed data types safely with multi-select
     if 'cycle' in df.columns:
         # Clean cycle data - remove NaN and convert to string for consistent sorting
         cycle_values = df['cycle'].dropna().astype(str).unique()
-        sprints = ['All'] + sorted([c for c in cycle_values if c != 'nan' and c.strip() != ''])
+        available_sprints = sorted([c for c in cycle_values if c != 'nan' and c.strip() != ''])
     else:
-        sprints = ['All']
+        available_sprints = []
     
-    selected_sprint = st.selectbox("🏃‍♂️ Select Sprint:", sprints)
+    # Multi-select for sprints
+    selected_sprints = st.multiselect(
+        "🏃‍♂️ Select Sprint(s):", 
+        available_sprints,
+        default=available_sprints,  # Default to all sprints selected
+        help="Select one or more sprints to filter the data"
+    )
     
-    # Filter data - handle string comparison safely
-    if selected_sprint != 'All' and 'cycle' in df.columns:
+    # Information box about the new functionality
+    if selected_sprints:
+        st.info(f"📊 **Filtering by {len(selected_sprints)} sprint(s):** {', '.join(selected_sprints)}")
+    else:
+        st.warning("⚠️ No sprints selected. Please select at least one sprint to view data.")
+    
+    # Filter data - handle string comparison safely with multi-select
+    if selected_sprints and 'cycle' in df.columns:
         # Convert cycle column to string for comparison
         df_temp = df.copy()
         df_temp['cycle'] = df_temp['cycle'].astype(str)
-        filtered_df = df_temp[df_temp['cycle'] == selected_sprint]
+        filtered_df = df_temp[df_temp['cycle'].isin(selected_sprints)]
     else:
         filtered_df = df
     
@@ -217,8 +801,19 @@ def scrum_dashboard(df):
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
-        completed = len(filtered_df[filtered_df['status'] == 'Done'])
-        st.metric("✅ Completed", completed)
+        # Count completed story points instead of just completed issues
+        if 'estimate' in filtered_df.columns:
+            try:
+                completed_df = filtered_df[filtered_df['status'] == 'Done']
+                numeric_estimates = completed_df['estimate'].apply(
+                    lambda x: pd.to_numeric(x, errors='coerce') if pd.notnull(x) else 0
+                ).fillna(0)
+                completed_points = int(numeric_estimates.sum())
+            except:
+                completed_points = 0
+        else:
+            completed_points = 0
+        st.metric("✅ Completed Points", completed_points)
     
     with col2:
         if 'estimate' in filtered_df.columns:
@@ -228,12 +823,12 @@ def scrum_dashboard(df):
                 numeric_estimates = filtered_df['estimate'].apply(
                     lambda x: pd.to_numeric(x, errors='coerce') if pd.notnull(x) else 0
                 ).fillna(0)
-                points = int(numeric_estimates.sum())
+                total_points = int(numeric_estimates.sum())
             except:
-                points = 0
+                total_points = 0
         else:
-            points = 0
-        st.metric("📊 Story Points", points)
+            total_points = 0
+        st.metric("📊 Total Story Points", total_points)
     
     with col3:
         if 'cycle_time_days' in filtered_df.columns:
@@ -250,18 +845,27 @@ def scrum_dashboard(df):
         st.metric("⏱️ Cycle Time", f"{cycle_time:.1f}d")
     
     with col4:
-        rate = (completed / len(filtered_df) * 100) if len(filtered_df) > 0 else 0
-        st.metric("🎯 Completion", f"{rate:.1f}%")
+        # Calculate completion rate based on story points
+        if total_points > 0:
+            rate = (completed_points / total_points * 100)
+        else:
+            rate = 0
+        st.metric("🎯 Completion Rate", f"{rate:.1f}%")
     
     # Charts
     col1, col2 = st.columns(2)
     
     with col1:
-        # Velocity chart - handle data types safely
+        # Velocity chart - handle data types safely and respect filter
         if 'cycle' in df.columns and 'estimate' in df.columns:
-            # Clean data for velocity calculation
+            # Use filtered data for velocity calculation
             velocity_data = df[df['status'] == 'Done'].copy()
             velocity_data['cycle'] = velocity_data['cycle'].astype(str)
+            
+            # Filter by selected sprints if any
+            if selected_sprints:
+                velocity_data = velocity_data[velocity_data['cycle'].isin(selected_sprints)]
+            
             # Convert estimates to numeric, replacing non-numeric with 0
             velocity_data['estimate'] = velocity_data['estimate'].apply(
                 lambda x: pd.to_numeric(x, errors='coerce') if pd.notnull(x) else 0
@@ -269,7 +873,11 @@ def scrum_dashboard(df):
             
             velocity = velocity_data.groupby('cycle')['estimate'].sum().reset_index()
             if not velocity.empty and len(velocity) > 0:
-                fig = px.bar(velocity, x='cycle', y='estimate', title="📈 Sprint Velocity")
+                fig = px.bar(velocity, x='cycle', y='estimate', 
+                           title="📈 Sprint Velocity (Filtered)",
+                           color='estimate',
+                           color_continuous_scale='Blues')
+                fig.update_layout(height=400)
                 st.plotly_chart(fig, use_container_width=True)
         
         # Status pie chart
@@ -278,18 +886,35 @@ def scrum_dashboard(df):
         st.plotly_chart(fig, use_container_width=True)
     
     with col2:
-        # Burndown simulation
-        total_points = filtered_df['estimate'].sum() if 'estimate' in filtered_df.columns else 100
-        completed_points = filtered_df[filtered_df['status'] == 'Done']['estimate'].sum() if 'estimate' in filtered_df.columns else 50
+        # Burndown simulation - use filtered data
+        if 'estimate' in filtered_df.columns:
+            try:
+                # Calculate total and completed points from filtered data
+                numeric_estimates = filtered_df['estimate'].apply(
+                    lambda x: pd.to_numeric(x, errors='coerce') if pd.notnull(x) else 0
+                ).fillna(0)
+                total_points = numeric_estimates.sum()
+                
+                completed_df = filtered_df[filtered_df['status'] == 'Done']
+                completed_numeric = completed_df['estimate'].apply(
+                    lambda x: pd.to_numeric(x, errors='coerce') if pd.notnull(x) else 0
+                ).fillna(0)
+                completed_points = completed_numeric.sum()
+            except:
+                total_points = 100
+                completed_points = 50
+        else:
+            total_points = 100
+            completed_points = 50
         
         days = list(range(15))
         ideal = [total_points - (total_points/14) * day for day in days]
         actual = [total_points - min(completed_points, (completed_points/10) * day) for day in days]
         
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x=days, y=ideal, mode='lines', name='Ideal', line=dict(dash='dash')))
-        fig.add_trace(go.Scatter(x=days, y=actual, mode='lines+markers', name='Actual'))
-        fig.update_layout(title="🔥 Sprint Burndown")
+        fig.add_trace(go.Scatter(x=days, y=ideal, mode='lines', name='Ideal', line=dict(dash='dash', color='gray')))
+        fig.add_trace(go.Scatter(x=days, y=actual, mode='lines+markers', name='Actual', line=dict(color='#1f77b4')))
+        fig.update_layout(title="🔥 Sprint Burndown (Filtered)", height=400)
         st.plotly_chart(fig, use_container_width=True)
         
         # Cycle time histogram
@@ -322,13 +947,21 @@ def performance_dashboard(df):
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        # Handle cycle data safely
+        # Handle cycle data safely with multi-select
         if 'cycle' in df.columns:
             cycle_values = df['cycle'].dropna().astype(str).unique()
-            sprints = ['All'] + sorted([c for c in cycle_values if c != 'nan' and c.strip() != ''])
+            available_sprints = sorted([c for c in cycle_values if c != 'nan' and c.strip() != ''])
         else:
-            sprints = ['All']
-        sprint = st.selectbox("🏃‍♂️ Sprint:", sprints, key="perf_sprint")
+            available_sprints = []
+        
+        # Multi-select for sprints in performance dashboard
+        selected_sprints_perf = st.multiselect(
+            "🏃‍♂️ Sprint(s):", 
+            available_sprints,
+            default=available_sprints,  # Default to all sprints selected
+            help="Select one or more sprints to filter the data",
+            key="perf_sprint"
+        )
     
     with col2:
         # Handle assignee data safely
@@ -350,9 +983,9 @@ def performance_dashboard(df):
     
     # Apply filters - handle string comparisons safely
     filtered_df = df.copy()
-    if sprint != 'All' and 'cycle' in df.columns:
+    if selected_sprints_perf and 'cycle' in df.columns:
         filtered_df['cycle'] = filtered_df['cycle'].astype(str)
-        filtered_df = filtered_df[filtered_df['cycle'] == sprint]
+        filtered_df = filtered_df[filtered_df['cycle'].isin(selected_sprints_perf)]
     if person != 'All' and 'assignee' in df.columns:
         filtered_df['assignee'] = filtered_df['assignee'].astype(str)
         filtered_df = filtered_df[filtered_df['assignee'] == person]
@@ -366,11 +999,33 @@ def performance_dashboard(df):
     with col1:
         st.metric("📋 Assigned", len(filtered_df))
     with col2:
-        completed = len(filtered_df[filtered_df['status'] == 'Done'])
-        st.metric("✅ Completed", completed)
+        # Count completed story points instead of just completed issues
+        if 'estimate' in filtered_df.columns:
+            try:
+                completed_df = filtered_df[filtered_df['status'] == 'Done']
+                numeric_estimates = completed_df['estimate'].apply(
+                    lambda x: pd.to_numeric(x, errors='coerce') if pd.notnull(x) else 0
+                ).fillna(0)
+                completed_points = int(numeric_estimates.sum())
+            except:
+                completed_points = 0
+        else:
+            completed_points = 0
+        st.metric("✅ Completed Points", completed_points)
     with col3:
-        rate = (completed / len(filtered_df) * 100) if len(filtered_df) > 0 else 0
-        st.metric("🎯 Rate", f"{rate:.1f}%")
+        # Calculate completion rate based on story points
+        if 'estimate' in filtered_df.columns:
+            try:
+                total_numeric = filtered_df['estimate'].apply(
+                    lambda x: pd.to_numeric(x, errors='coerce') if pd.notnull(x) else 0
+                ).fillna(0)
+                total_points = total_numeric.sum()
+                rate = (completed_points / total_points * 100) if total_points > 0 else 0
+            except:
+                rate = 0
+        else:
+            rate = 0
+        st.metric("🎯 Points Rate", f"{rate:.1f}%")
     with col4:
         # Handle cycle time safely
         if 'cycle_time_days' in filtered_df.columns:
